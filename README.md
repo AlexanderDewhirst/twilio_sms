@@ -1,24 +1,36 @@
-# README
+# Twilio SMS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project contains a quick implementation of SMS notification services using Twilio and RapidAPI. The goal of this project is to show a valuable approach to providing Twilio's SMS capabilities in a lightweight, "Railsy" manner. This project does not currently contain views to see hands on (this may come in later commits!).
 
-Things you may want to cover:
+To start this project yourself, run:
+```
+rails new twilio_sms -d postgresql --skip-javascript
+```
 
-* Ruby version
+Add the following gems to your Gemfile:
+```
+gem 'bcrypt'
+gem 'unirest'
+```
+and then run:
+```
+bundle install
+```
+You should now have a working rails project with the required dependencies.
 
-* System dependencies
+From here, I created a User model by running:
+```
+rails generate model User name:string password_digest:string phone:string mobile:boolean
+```
+in the terminal.
 
-* Configuration
+I also created the controllers UsersController and PagesController by running:
+```
+rails generate controller Users
+rails generate controller Pages
+```
+in the terminal.
 
-* Database creation
+In the routes file I setup resources for Users adding the `new` and `create` routes. I also added the Pages resource and set the root to action `index`.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The next step is to code the lib modules and the controller actions provided in this project!
